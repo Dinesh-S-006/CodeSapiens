@@ -24,13 +24,31 @@
             color: #fff;
         }
 
-        body {
+        /* body {
             display: flex;
             justify-content: center;
             align-items: center;
             background: linear-gradient(rgba(30, 60, 114, 0.75), rgba(42, 82, 152, 0.75)),
                 url("login.jpg") center/cover no-repeat;
-        }
+        } */
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Layers: gradient first, then image */
+    background-image: 
+        linear-gradient(rgba(30, 60, 114, 0.75), rgba(42, 82, 152, 0.75)),
+        url("login.jpg");
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    height: 100vh; /* make sure body has full height */
+    margin: 0;     /* remove default margin */
+}
+
 
         /* ==========================
            LOGIN CONTAINER
@@ -236,3 +254,4 @@
 
 
 </html>
+
