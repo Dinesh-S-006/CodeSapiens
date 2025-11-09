@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Validation Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Nandha Certificate Portal</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#departments">Departments</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1 id="welcomeText"></h1>
+            <p id="descText">Track and showcase your achievements across departments with a seamless experience.</p>
+            <div class="cta-buttons">
+                <a href="#departments" class="btn">Get Started</a>
+                <button onclick="logout()" class="btn-outline">Logout</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments">
+        <h2 class="section-title">Departments</h2>
+        <div class="dept-grid">
+            <div class="dept-card" onclick="selectDept('CSE')"><i class="fa-solid fa-laptop-code"></i><span>CSE</span>
+            </div>
+            <div class="dept-card" onclick="selectDept('IT')"><i class="fa-solid fa-network-wired"></i><span>IT</span>
+            </div>
+            <div class="dept-card" onclick="selectDept('ECE')"><i
+                    class="fa-solid fa-satellite-dish"></i><span>ECE</span></div>
+            <div class="dept-card" onclick="selectDept('EEE')"><i class="fa-solid fa-bolt"></i><span>EEE</span></div>
+            <div class="dept-card" onclick="selectDept('Mechanical')"><i
+                    class="fa-solid fa-cog"></i><span>Mechanical</span></div>
+            <div class="dept-card" onclick="selectDept('Civil')"><i class="fa-solid fa-building"></i><span>Civil</span>
+            </div>
+            <div class="dept-card" onclick="selectDept('Biomedical')"><i
+                    class="fa-solid fa-dna"></i><span>Biomedical</span></div>
+            <div class="dept-card" onclick="selectDept('AI & DS')"><i class="fa-solid fa-robot"></i><span>AI & DS</span>
+            </div>
+            <div class="dept-card" onclick="selectDept('Chemical')"><i
+                    class="fa-solid fa-flask"></i><span>Chemical</span></div>
+            <div class="dept-card" onclick="selectDept('Cyber Security')"><i
+                    class="fa-solid fa-shield-alt"></i><span>Cyber Security</span></div>
+            <div class="dept-card" onclick="selectDept('IoT')"><i class="fa-solid fa-microchip"></i><span>IoT</span>
+            </div>
+            <div class="dept-card" onclick="selectDept('Agriculture')"><i
+                    class="fa-solid fa-seedling"></i><span>Agriculture</span></div>
+        </div>
+    </section>
+
+    <!-- Year Selection -->
+    <section id="years" class="selected-dept"></section>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard" class="leaderboard"></section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@nandhaengg.ac.in | Phone: +91 98765 43210</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ✅ Redirect if not logged in
+         if (localStorage.getItem("loggedIn") !== "true") {
+             window.location.href = "login.html";
+         }
+
+        // ✅ Display personalized welcome text
+        const username = localStorage.getItem("username");
+        const welcomeText = document.getElementById("welcomeText");
+
+        if (username) {
+            welcomeText.innerHTML = `
+        <span style="font-size: 28px; color: #0078ff; font-weight: 600;">
+          👋 Welcome ${username}!
+        </span><br>
+        <span style="font-size: 36px; color: #222; font-weight: 700;">
+          Upload Your Certificates
+        </span><br>
+        <span style="font-size: 36px; color: #0078ff; font-weight: 700;">
+          Know Your Points!
+        </span>
+      `;
+        } else {
+            welcomeText.innerHTML = `
+        <span style="font-size: 36px; color: #222; font-weight: 700;">
+          Upload Your Certificates
+        </span><br>
+        <span style="font-size: 36px; color: #0078ff; font-weight: 700;">
+          Know Your Points!
+        </span>
+      `;
+        }
+
+        // ✅ Logout Function
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            localStorage.removeItem("username");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+
+</html>
