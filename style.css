@@ -74,7 +74,7 @@ body {
 /* ==============================
    HOME SECTION
 ============================== */
-.home {
+/* .home {
     height: 100vh;
     background: linear-gradient(rgba(0, 119, 182, 0.25), rgba(0, 180, 216, 0.25)),
         url("background.jpeg") no-repeat center center/cover;
@@ -84,7 +84,20 @@ body {
     text-align: center;
     color: #fff;
     padding: 0 20px;
+} */
+.home {
+    height: 100vh;
+    background: 
+        linear-gradient(rgba(0, 119, 182, 0.25), rgba(0, 180, 216, 0.25)),
+        url("background.jpeg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
 }
+
 
 .home-content {
     background: rgba(255, 255, 255, 0.25);
@@ -432,3 +445,4 @@ body {
     }
 
 }
+
